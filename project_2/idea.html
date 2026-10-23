@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>idea</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">P2 Team Idea</h1>
+</header>
+<h1 id="p2-idea-can-we-trust-the-nycc-leaderboard">P2 Idea: Can we trust the NYCC leaderboard?</h1>
+<h2 id="title-exposure-uncertainty-and-rank-stability-in-the-new-yorker-caption-contest-crowd-leaderboard">Title: <em>Exposure, uncertainty, and rank stability in the New Yorker Caption Contest crowd leaderboard</em></h2>
+<p><strong>Dataset:</strong> New Yorker Caption Contest (NYCC)<br />
+<strong>One-line pitch:</strong> Crowd rankings look precise, but <strong>adaptive voting</strong> gives some captions far more exposure than others—we ask <strong>how stable the “winners” really are</strong> once we model uncertainty, and <strong>who gets left behind</strong> with too few votes to be fairly judged.</p>
+<hr />
+<h2 id="description">1. Description</h2>
+<p>Each contest shows readers a cartoon and many candidate captions. Ratings feed an <strong>adaptive system</strong> (bandit-style): captions that look promising get <strong>shown and voted on more often</strong>. The public leaderboard sorts by <strong>mean funniness</strong> (<code>mean</code>), but:</p>
+<ul>
+<li>High <code>mean</code> captions often have <strong>many more</strong> <code>votes</code> than the long tail.</li>
+<li><code>precision</code> in the data reflects uncertainty in that mean (more votes → tighter estimate).</li>
+<li>A caption with a great early streak but <strong>few total votes</strong> can sit mid-table while never getting a fair chance to catch up—or the opposite: high exposure <strong>freezes</strong> a early leader.</li>
+</ul>
+<p><strong>Story we want to tell:</strong> “The NYCC crowd leaderboard is a <strong>noisy, exposure-skewed ranking problem</strong>, not a ground-truth humor score.” We quantify skew, then ask <strong>probabilistic</strong> ranking questions: <em>Who is really in the top 10? How often would #1 change if we respected uncertainty?</em></p>
+<p>This aligns with TA feedback: go beyond raw means/resampling; use <strong>shrinkage or a Bayesian model</strong>; tie results back to the <strong>contest</strong> (rank swaps, low-vote captions).</p>
+<hr />
+<h2 id="research-questions">2. Research questions</h2>
+<h3 id="rq1-exposure-inequality-how-skewed-is-voting-and-how-does-it-relate-to-apparent-quality">RQ1 — Exposure inequality: how skewed is voting, and how does it relate to apparent quality?</h3>
+<p><strong>Question:</strong> Within and across contests, how unequal is <code>votes</code>? Is higher <code>mean</code> associated with more exposure—and does <code>precision</code> tighten mainly because of vote count?</p>
+<p><strong>Why it matters:</strong> If exposure and <code>mean</code> are strongly coupled, the leaderboard mixes <strong>quality signal</strong> with <strong>bandit allocation</strong>.</p>
+<p><strong>Planned analyses:</strong></p>
+<ul>
+<li>Distribution of <code>votes</code> per contest (Gini, top-10 vs bottom-50% vote share).</li>
+<li>Scatter / hexbin: <code>votes</code> vs <code>mean</code>, colored by rank decile; same for <code>precision</code> vs <code>votes</code>.</li>
+<li>Contest-level summaries: correlation(mean rank, vote rank); contests with extreme skew flagged as case studies.</li>
+</ul>
+<p><strong>Outputs:</strong> 2–3 clear plots + table of “most skewed” contests for RQ2 deep dives.</p>
+<hr />
+<h3 id="rq2-probabilistic-ranking-do-top-captions-stay-top-once-we-account-for-uncertainty">RQ2 — Probabilistic ranking: do “top” captions stay top once we account for uncertainty?</h3>
+<p><strong>Question:</strong> After modeling each caption’s <strong>true</strong> funniness (latent or shrunken score with uncertainty), what is each caption’s <strong>probability of being in the top k</strong> (e.g. top 10, top 1)? <strong>How often does the #1 caption by raw</strong> <code>mean</code> <strong>differ from the #1 caption by posterior probability?</strong></p>
+<p><strong>Why it matters:</strong> This is our <strong>differentiator</strong> vs “plot means and call it a day”—and what the TA asked for explicitly.</p>
+<p><strong>Model direction (pick one primary approach in P2; document math in notebook):</strong></p>
+<p><strong>Option A — Beta–Binomial (recommended starting point)</strong><br />
+Treat each caption as unknown probability θ of a “funny” (or positive) vote on the 1–3 scale. Options:</p>
+<ul>
+<li>Map ratings to binary: e.g. “funny” vs not, or ordinal model later.</li>
+<li>Prior: θ ~ Beta(α, β) with <strong>weakly informative</strong> global α, β (or hierarchical α_c, β_c per contest).</li>
+<li>Posterior: Beta(α + successes, β + failures); rank captions by <strong>posterior mean</strong> or by <strong>P(top k)</strong> via Monte Carlo draws.</li>
+</ul>
+<p><strong>Option B — Empirical-Bayes / shrinkage on observed</strong> <code>mean</code><br />
+Shrink each caption’s observed mean toward the <strong>contest mean</strong> (or global mean), with shrinkage strength increasing when <code>votes</code> is low (James–Stein / partial pooling intuition). Good when we want to stay close to provided <code>mean</code>/<code>precision</code>.</p>
+<p><strong>What we will not rely on alone:</strong> bootstrap resampling <strong>only</strong> on captions with very low <code>votes</code> (TA: least reliable there). If we use resampling, it is <strong>secondary</strong> and paired with shrinkage.</p>
+<p><strong>Metrics:</strong></p>
+<ul>
+<li><strong>Top-1 flip rate:</strong> fraction of contests where argmax(<code>mean</code>) ≠ argmax(posterior mean or P(#1)).</li>
+<li><strong>Top-10 membership:</strong> for each caption, P(in top 10); Jaccard overlap between naive top-10 set and “90% credible top-10”.</li>
+<li><strong>Calibration-style check:</strong> captions with low <code>votes</code> should have <strong>wider</strong> posterior → more rank movement when we simulate extra votes (links to RQ3).</li>
+</ul>
+<p><strong>Outputs:</strong> One worked example contest (step-by-step); aggregates over all contests (histogram of flip rates, etc.).</p>
+<hr />
+<h3 id="rq3-sample-size-and-stability-how-many-votes-does-a-ranking-need">RQ3 — Sample size and stability: how many votes does a ranking need?</h3>
+<p><strong>Question:</strong> As we <strong>downsample</strong> or <strong>cap</strong> votes (or simulate collecting votes forward), when do ranks stabilize? Do contests with heavy exposure skew need more votes to trust the top 10?</p>
+<p><strong>Why it matters:</strong> Connects uncertainty to <strong>practical</strong> leaderboard trust and to <strong>low-vote</strong> captions that never got a fair draw.</p>
+<p><strong>Planned analyses:</strong></p>
+<ul>
+<li>For captions above a vote threshold, subsample votes (multinomial from the three count columns) and track rank of top captions over repeats.</li>
+<li>Plot <strong>rank volatility vs</strong> <code>votes</code> (and vs posterior width from RQ2).</li>
+<li>Compare contests: high skew (RQ1) vs low skew → different stability curves.</li>
+</ul>
+<p><strong>Caution:</strong> Subsampling is more trustworthy for <strong>high-vote</strong> captions; for low-vote ones, lean on <strong>prior/shrinkage</strong> from RQ2 rather than pretending we have rich within-caption variation.</p>
+<p><strong>Outputs:</strong> Curve(s): “probability top-1 unchanged after subsampling” vs initial vote count; 1 paragraph interpretation for contest organizers / readers (informal, not prescriptive).</p>
+<hr />
+<h3 id="optional-rq4-stretch-what-characterizes-starved-low-vote-captions">Optional RQ4 (stretch ): What characterizes “starved” low-vote captions?</h3>
+<p><strong>Question:</strong> Among captions with <strong>low</strong> <code>votes</code> but <strong>decent posterior mean after shrinkage</strong>, do simple text features (length, punctuation, dialogue quotes) differ from high-exposure captions?</p>
+<p><strong>Why:</strong> TA asked what <strong>kinds of jokes</strong> end up with few votes—without turning the project into Idea 1.</p>
+<p><strong>Keep minimal:</strong> a few features, one logistic/regression slide—not a second main thesis.</p>
+<hr />
+</body>
+</html>

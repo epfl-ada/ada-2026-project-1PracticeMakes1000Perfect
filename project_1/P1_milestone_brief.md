@@ -27,7 +27,11 @@ P1 is **not** the final project and **does not grade code**. The staff want you 
 
 ---
 
+
+
 ## 3. Introduction to the selected dataset
+
+
 
 ### 3.1 The real-world contest
 
@@ -84,6 +88,8 @@ You can study humor as **text**, as **preference / ranking**, as **time / cultur
 
 ---
 
+
+
 ## 4. Submission
 
 Idea 1 — Anatomy of a Punchline: What Makes the Crowd Laugh?
@@ -124,3 +130,18 @@ Solution: Relate similarity to within-contest rank using linear and curved relat
 
 RQ3: Which visual themes support the greatest diversity of successful interpretations?
 Solution: Group cartoons into manually checked themes and compare the rating distribution and semantic diversity of their top captions, illustrating results with selected examples.
+
+
+
+
+
+## Feedback: 
+
+
+
+Score: 75/100 Grade: Great Very rigorous proposal, and you clearly understand how the data was collected. The ideas are among the most common ones for this dataset, though, so try to push one of them toward a question fewer teams will ask. 
+Idea 1: Solid but standard. I would put the weight on RQ2 (does each cartoon reward a different style?). 
+
+Idea 2: Good idea. Resampling is least reliable for the low-vote captions, so use a shrinkage or Bayesian prior and say which one. Tie it back to the contest, for example how often the top caption would change and what kinds of jokes end up with few votes. 
+
+Idea 3: Nice idea. Start from the existing Hessel et al. scene descriptions before writing your own. However, measuring how similar a cartoon image is to a caption usually needs a pretrained image-text model or text embeddings. Overlap warning: P1 is individual work, so each idea you submit has to be your own.
